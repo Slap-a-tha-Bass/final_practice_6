@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import PrivateRoute from './components/PrivateRoute';
 import BookDetails from './views/BookDetails';
 import Books from './views/Books';
 import EditDetails from './views/EditDetails';
@@ -8,6 +9,7 @@ import Home from './views/Home';
 import Login from './views/Login';
 import Profile from './views/Profile';
 import Register from './views/Register';
+
 
 const App = (props: AppProps) => {
 	
@@ -27,9 +29,9 @@ const App = (props: AppProps) => {
 				<Route exact path ="/edit/:id">
 					<EditDetails />
 				</Route>
-				<Route exact path ="/profile">
+				<PrivateRoute path ="/profile">
 					<Profile />
-				</Route>
+				</PrivateRoute>
 				<Route exact path ="/login">
 					<Login />
 				</Route>
