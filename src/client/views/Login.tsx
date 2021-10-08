@@ -17,6 +17,7 @@ const Login = () => {
     }
     return (
         <RootLayout>
+            <h1 className="text-info">login</h1>
             <form className="form-group">
                 <label className="text-info">email</label>
                 <input
@@ -32,7 +33,7 @@ const Login = () => {
                     onChange={handleChanges}
                     type="password"
                     className="form-control" />
-                <button onClick={handleLogin} className="btn btn-info">Login</button>
+                <button onClick={handleLogin} className="btn btn-info border rounded-pill">Login</button>
             </form>
         </RootLayout>
     )

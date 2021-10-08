@@ -7,6 +7,7 @@ import Books from './views/Books';
 import EditDetails from './views/EditDetails';
 import Home from './views/Home';
 import Login from './views/Login';
+import NotFound from './views/NotFound';
 import Profile from './views/Profile';
 import Register from './views/Register';
 
@@ -37,6 +38,9 @@ const App = (props: AppProps) => {
 				</Route>
 				<Route exact path ="/register">
 					<Register />
+				</Route>
+				<Route path ="*">
+					<NotFound />
 				</Route>
 			</Switch>
 		</BrowserRouter>

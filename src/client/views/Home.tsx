@@ -54,8 +54,8 @@ const Home = () => {
                     ))}
                 </select>
                 <div className="d-flex justify-content-between">
-                    <button onClick={handleSubmit} className="btn btn-info">submit</button>
-                    <Link className="btn btn-info" to="/profile">profile</Link>
+                    <button onClick={handleSubmit} className="btn btn-info border rounded-pill border-dark">submit</button>
+                    <Link className="btn btn-info border rounded-pill" to="/profile">profile</Link>
                 </div>
             </form>
         </RootLayout>

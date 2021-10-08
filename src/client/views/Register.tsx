@@ -17,6 +17,7 @@ const Register = () => {
     return (
         <RootLayout>
             <form className="form-group">
+                <h1 className="text-info">register</h1>
                 <label className="text-info">name</label>
                 <input
                     name="name"
@@ -38,7 +39,7 @@ const Register = () => {
                     onChange={handleChanges}
                     type="password"
                     className="form-control" />
-                <button onClick={handleRegister} className="btn btn-info">Login</button>
+                <button onClick={handleRegister} className="btn btn-info border rounded-pill">Login</button>
             </form>
         </RootLayout>
     )
