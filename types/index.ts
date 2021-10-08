@@ -19,7 +19,8 @@ export interface Users {
     name?: string,
     email?: string,
     password?: string,
-    _created?: Date
+    _created?: Date,
+    role?: string
 }
 export interface ReqUsers extends Request {
     user?: Users

@@ -18,11 +18,11 @@ const Profile = () => {
     return (
         <RootLayout>
             <div className="card">
-                <h1 className="card-header text-info text-center">{users}</h1>
+                <h1 className="card-header text-secondary text-center">{users}</h1>
                 <div className="card-body">
                     <div className="d-flex justify-content-center">
-                        <Link className="btn btn-info mx-2" to="/">home</Link>
-                        <button onClick={handleSignOut} className="btn btn-info mx-2">sign out</button>
+                        <Link className="btn btn-info mx-2 border rounded-pill bg-secondary text-info" to="/">home</Link>
+                        <button onClick={handleSignOut} className="btn btn-outline-info mx-2 border rounded-pill bg-secondary text-info">sign out</button>
                     </div>
                 </div>
             </div>

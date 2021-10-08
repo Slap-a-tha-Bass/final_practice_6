@@ -22,35 +22,45 @@ const EditDetails = () => {
                 history.push('/books')
             })
     }
+    const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if(confirm('Are you sure you want to cancel edit?')){
+            history.push(`/books/${id}`);
+        }
+    }
     useEffect(() => {
         apiService(`/api/books/${id}`)
             .then(values => populate(values))
-    }, [])
+    }, []);
+    let disabledBtn = true;
+    if(values.title && values.author && values.price && values.categoryid){
+        disabledBtn = false;
+    }
     return (
         <RootLayout>
-            <h1 className="text-info">home</h1>
-            <form className="form-group">
-                <label htmlFor="">title</label>
+            <h1 className="text-dark text-center bg-secondary border rounded-pill my-2 col-md-4 border-dark">edit</h1>
+            <form className="form-group border rounded shadow p-2">
+                <label className="text-info">title</label>
                 <input
                     name="title"
                     value={values.title || ''}
                     onChange={handleChanges}
                     type="text"
                     className="form-control" />
-                <label htmlFor="">author</label>
+                <label className="text-info">author</label>
                 <input
                     name="author"
                     value={values.author || ''}
                     onChange={handleChanges}
                     type="text"
                     className="form-control" />
-                <label htmlFor="">price</label>
+                <label className="text-info">price</label>
                 <input
                     name="price"
                     value={values.price || ''}
                     onChange={handleChanges}
                     type="text"
                     className="form-control" />
+                <label className="text-info">genre</label>
                 <select value={values.categoryid} name="categoryid" onChange={handleChanges} className="form-select my-2">
                     <option value="0">choose genre</option>
                     {categories.map((values) => (
@@ -60,8 +70,9 @@ const EditDetails = () => {
                     ))}
                 </select>
                 <div className="d-flex justify-content-between">
-                    <button onClick={handleSubmit} className="btn btn-info">submit</button>
-                    <Link className="btn btn-info border rounded-pill" to="/profile">profile</Link>
+                    <button onClick={handleSubmit} disabled={disabledBtn} className="btn btn-info text-info border-dark rounded-pill bg-secondary">submit</button>
+                    <button onClick={handleCancel} className="btn btn-info text-warning border-dark rounded-pill bg-secondary">cancel</button>
+                    <Link className="btn btn-info border rounded-pill text-success bg-secondary border-dark" to="/profile">profile</Link>
                 </div>
             </form>
         </RootLayout>

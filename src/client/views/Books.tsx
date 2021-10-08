@@ -13,7 +13,7 @@ const Books = () => {
     }, []);
     return (
         <RootLayout>
-            <h1 className="text-info">books</h1>
+            <h1 className="text-dark text-center bg-secondary border rounded-pill my-2 col-md-4 border-dark">books</h1>
             {books.map((book) => (
                 <Link className="text-decoration-none" key={book.id} to={`/books/${book.id}`}><BookCard {...book} /></Link>
             ))}

@@ -20,31 +20,36 @@ const Home = () => {
                 history.push('/books')
             })
     }
+    let disabledBtn = true;
+    if(values.title && values.author && values.price && values.categoryid){
+        disabledBtn = false;
+    }
     return (
         <RootLayout>
-            <h1 className="text-info">home</h1>
-            <form className="form-group">
-                <label htmlFor="">title</label>
+            <h1 className="text-dark text-center bg-secondary border rounded-pill my-2 col-md-4 border-dark">home</h1>
+            <form className="form-group border rounded shadow p-2">
+                <label className="text-info">title</label>
                 <input
                     name="title"
                     value={values.title || ''}
                     onChange={handleChanges}
                     type="text"
                     className="form-control" />
-                <label htmlFor="">author</label>
+                <label className="text-info">author</label>
                 <input
                     name="author"
                     value={values.author || ''}
                     onChange={handleChanges}
                     type="text"
                     className="form-control" />
-                <label htmlFor="">price</label>
+                <label className="text-info">price</label>
                 <input
                     name="price"
                     value={values.price || ''}
                     onChange={handleChanges}
-                    type="text"
+                    type="number"
                     className="form-control" />
+                <label className="text-info">genre</label>
                 <select name="categoryid" onChange={handleChanges} className="form-select my-2">
                     <option value="0">choose genre</option>
                     {categories.map((values) => (
@@ -54,8 +59,8 @@ const Home = () => {
                     ))}
                 </select>
                 <div className="d-flex justify-content-between">
-                    <button onClick={handleSubmit} className="btn btn-info border rounded-pill border-dark">submit</button>
-                    <Link className="btn btn-info border rounded-pill" to="/profile">profile</Link>
+                    <button onClick={handleSubmit} disabled={disabledBtn}className="btn btn-info border rounded-pill border-dark text-info bg-secondary">submit</button>
+                    <Link className="btn btn-info border rounded-pill border-dark text-info bg-secondary" to="/profile">profile</Link>
                 </div>
             </form>
         </RootLayout>

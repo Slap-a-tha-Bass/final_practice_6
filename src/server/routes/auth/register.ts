@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const hashed = generateHash(password);
-        const newUser = { name, email, password: hashed };
+        const newUser = { name, email, password: hashed, role: 'guest' };
         const register = await insert_user(newUser);
         const token = jwt.sign({ userid: register.insertId, email, role: 'guest'},
         jwtConfig.secret,
