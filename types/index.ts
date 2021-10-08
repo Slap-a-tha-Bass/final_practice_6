@@ -10,6 +10,7 @@ export interface Books {
     title?: string,
     author?: string,
     categoryid?: number,
+    price?: number,
     _created?: Date,
     isPreview?: boolean
 }
