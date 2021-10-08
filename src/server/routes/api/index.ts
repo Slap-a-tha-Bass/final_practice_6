@@ -8,6 +8,6 @@ const router = express.Router();
 
 router.use('/books', booksRouter);
 router.use('/users',passport.authenticate('jwt'), usersRouter);
-router.use('/categories',passport.authenticate('jwt'), categoriesRouter);
+router.use('/categories', categoriesRouter);
 
 export default router;

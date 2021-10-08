@@ -1,10 +1,12 @@
 import React from 'react';
 
-const RootLayout = ({children}: IRootLayout) => {
+const RootLayout = ({ children }: IRootLayout) => {
     return (
         <main className="container">
             <section className="row justify-content-center">
-                {children}
+                <div className="col-md-6">
+                    {children}
+                </div>
             </section>
         </main>
     )
